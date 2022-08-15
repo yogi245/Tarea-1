@@ -22,10 +22,10 @@ class Pa1ApplicationTests {
     @Test
     public void probarRegistro(){
         CentroSalud centroSalud = new CentroSalud();
-        centroSalud.setNombre("Hospital 2 de Mayo");
-        centroSalud.setTipo("Hospital");
-        centroSalud.setCalificacionInfraestructura(65);
-        centroSalud.setCalificacionServicio(50);
+        centroSalud.setNombre("Clinica Hipolito Unanue");
+        centroSalud.setTipo("Clinica");
+        centroSalud.setCalificacionInfraestructura(95);
+        centroSalud.setCalificacionServicio(90);
         centroSalud.setAmbulancia("SI");
         centroSaludNegocio.registrar(centroSalud);
     }
@@ -53,7 +53,7 @@ class Pa1ApplicationTests {
     @Test
     public void probarListadoTipoCentroSalud(){
         List<CentroSalud> listado;
-        listado = centroSaludNegocio.listadoTipoCentroSalud("Hospital");
+        listado = centroSaludNegocio.listadoTipoCentroSalud("Clinica");
         for (CentroSalud centroSalud:listado){
             System.out.println(centroSalud.getCodigo()+" "+centroSalud.getNombre()+" - "+centroSalud.getTipo());
         }
@@ -64,7 +64,7 @@ class Pa1ApplicationTests {
     public void probarObtenerCentroSaludAprobacion(){
         try {
             CentroSalud centroSalud;
-            centroSalud = centroSaludNegocio.obtenerCentroSaludAprobacion(3L);
+            centroSalud = centroSaludNegocio.obtenerCentroSaludAprobacion(4L);
             System.out.println(centroSalud.getCodigo());
             System.out.println(centroSalud.getNombre());
             System.out.println(centroSalud.getCalificacion());
@@ -84,7 +84,7 @@ class Pa1ApplicationTests {
     public void probarActualizarNombre(){
         try {
             CentroSalud centroSalud;
-            centroSalud = centroSaludNegocio.actualizarNombre(1L, "Hospital Vitarte");
+            centroSalud = centroSaludNegocio.actualizarNombre(1L, "Hospital Casimiro");
             System.out.println(centroSalud.getCodigo()+" "+centroSalud.getNombre());
         } catch (Exception e) {
             throw  new RuntimeException(e);
